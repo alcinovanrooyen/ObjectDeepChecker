@@ -2,7 +2,7 @@
  * An asyncronous and recursive way of checking that one object has all the properties that exsit on 
  * another object.
  * @params {Object} a - Object that needs to be checked.
- * @params {Object} b - Object that b should be compared to / checked against.
+ * @params {Object} b - Object that a should be compared to / checked against.
  */
 function deepCheck(a, b) {
     return new Promise(async res => {
