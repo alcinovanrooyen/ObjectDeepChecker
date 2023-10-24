@@ -9,15 +9,15 @@ function deepCheck(a, b) {
         const aKeys   = Object.keys(a);
         const bKeys   = Object.keys(b);
         
-        for (const propA of aKeys) {
-            if (typeof b[propA] === 'object') {
-                if (!a[propA]) a[propA] = {};
-                await deepCheck(a[propA], b[propA]);
+        for (const propB of bKeys) {
+            if (typeof b[propB] === 'object') {
+                if (!a[propB]) a[propB] = {};
+                await deepCheck(a[propB], b[propB]);
             }
             
-            else if (aKeys.indexOf(propA) === -1) {
+            else if (aKeys.indexOf(propB) === -1) {
                 let response = await new Promise( res => res()  ); // Any value / function that needs waiting for here.
-                a[propA]     = response || b[propA];
+                a[propB]     = response || b[propB];
             }
         }
         res();
